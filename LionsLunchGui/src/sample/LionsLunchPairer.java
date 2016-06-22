@@ -1,3 +1,4 @@
+package sample;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -8,5 +9,7 @@ public class LionsLunchPairer {
     public static void main(String [] args){
         System.out.println("welcome to lions lunch pairer lol");
         ArrayList<LionsLunchMember> members;
+        members = LLDB.getMemberInfo();
+        System.out.println(members.get(0).getEID());
     }
 }

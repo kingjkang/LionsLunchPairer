@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="LionsLunchDriver">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mysql-connector-java-5.1.39-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/poi-3.15-beta1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/poi-ooxml-3.15-beta1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
