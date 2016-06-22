@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class LionsLunchPairer {
     public static void main(String [] args){
-        System.out.println("testing adding justin to the db");
+        System.out.println("welcome to lions lunch pairer lol");
         ArrayList<LionsLunchMember> members;
     }
 }
