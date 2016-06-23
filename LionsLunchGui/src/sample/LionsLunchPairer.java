@@ -22,20 +22,20 @@ public class LionsLunchPairer {
         System.out.println("lions paired!");
     }
 
-    public static void pairLionsIE(ArrayList<LionsLunchMember> buddies){
-        ArrayList<LionsLunchMember> Introverts = new ArrayList<>();
-        ArrayList<LionsLunchMember> Extroverts = new ArrayList<>();
+    public static ArrayList<LionsLunchMember> pairLionsIE(ArrayList<LionsLunchMember> buddies, LionsLunchMember oddBreaker){
+        ArrayList<LionsLunchMember> introverts = new ArrayList<>();
+        ArrayList<LionsLunchMember> extroverts = new ArrayList<>();
 
         createPotentialPairs(buddies);
 
         //splitting the list into introverts and extroverts and by potentialPairs size smallest first
         for (LionsLunchMember current : buddies){
             if (current.getPersonality().equals("Introverted")){
-                Introverts.add(current);
-                sortByPotentialSize(Introverts);
+                introverts.add(current);
+                sortByPotentialSize(introverts);
             } else {
-                Extroverts.add(current);
-                sortByPotentialSize(Extroverts);
+                extroverts.add(current);
+                sortByPotentialSize(extroverts);
             }
         }
 
@@ -43,53 +43,130 @@ public class LionsLunchPairer {
         ArrayList<LionsLunchMember> pairings = new ArrayList<>();
         ArrayList<LionsLunchMember> exceptions = new ArrayList<>();
         Random rand = new Random();
-        if (Introverts.size() > Extroverts.size()){
+        if (introverts.size() > extroverts.size()){
             //this means that the extrovers are smaller so
-            while (!Extroverts.isEmpty()){
-                int randomNumber = rand.nextInt(((Introverts.size() - 1) - 0) + 1);
+            while (!extroverts.isEmpty()){
+                int randomNumber = rand.nextInt(((introverts.size() - 1) - 0) + 1);
                 //this function if there are no more potential pairs will get rid of it from the extroverts array
-                if (Extroverts.get(0).getPotentialPairs().size() == 0){
-                    exceptions.add(Extroverts.get(0));
-                    Extroverts.remove(0);
-                } else if (Extroverts.get(0).getPastPairs() == null || !Extroverts.get(0).getPotentialPairs().contains(Introverts.get(randomNumber))) {
+                if (extroverts.get(0).getPotentialPairs().size() == 0){
+                    exceptions.add(extroverts.get(0));
+                    extroverts.remove(0);
+                } else if (extroverts.get(0).getPastPairs() == null || !extroverts.get(0).getPotentialPairs().contains(introverts.get(randomNumber))) {
                     //this means that they have never been paired with anyone so just automatically pair them
-                    pairings.add(Extroverts.get(0));
-                    pairings.add(Introverts.get(randomNumber));
+                    pairings.add(extroverts.get(0));
+                    pairings.add(introverts.get(randomNumber));
                     //if a pair has been found we need to remove this potentail from all the members personal lists
-                    for (LionsLunchMember current : Extroverts){
+                    for (LionsLunchMember current : extroverts){
                         ArrayList<LionsLunchMember> update = current.getPotentialPairs();
-                        update.remove(Introverts.get(randomNumber));
+                        update.remove(introverts.get(randomNumber));
                         current.setPotentialPairs(update);
                         //not sure if this works but we will see soon enoguh we need to remove the EID of the member that just got paired
                         //this should work beacue introvers.get returns a lionslunchmember object that we are removing from potential pairs
                     }
-                    Extroverts.remove(0);
-                    Introverts.remove(randomNumber);
+                    extroverts.remove(0);
+                    introverts.remove(randomNumber);
                 }
             }
         } else {
             //this means that the introverts array is amaller so there are less of them to pair
-            while (!Introverts.isEmpty()){
-                int randomNumber = rand.nextInt(((Extroverts.size() - 1) - 0) + 1);
-                if (Introverts.get(0).getPotentialPairs().size() == 0){
-                    exceptions.add(Introverts.get(0));
-                    Introverts.remove(0);
-                } else if (Introverts.get(0).getPastPairs() == null || !Introverts.get(0).getPotentialPairs().contains(Extroverts.get(randomNumber))){
-                    pairings.add(Introverts.get(0));
-                    pairings.add(Extroverts.get(randomNumber));
-                    for (LionsLunchMember current : Introverts){
+            while (!introverts.isEmpty()){
+                int randomNumber = rand.nextInt(((extroverts.size() - 1) - 0) + 1);
+                if (introverts.get(0).getPotentialPairs().size() == 0){
+                    exceptions.add(introverts.get(0));
+                    introverts.remove(0);
+                } else if (introverts.get(0).getPastPairs() == null || !introverts.get(0).getPotentialPairs().contains(extroverts.get(randomNumber))){
+                    pairings.add(introverts.get(0));
+                    pairings.add(extroverts.get(randomNumber));
+                    for (LionsLunchMember current : introverts){
                         ArrayList<LionsLunchMember> update = current.getPotentialPairs();
-                        update.remove(Extroverts.get(randomNumber));
+                        update.remove(extroverts.get(randomNumber));
                         current.setPotentialPairs(update);
                     }
-                    Introverts.remove(0);
-                    Extroverts.remove(randomNumber);
+                    introverts.remove(0);
+                    extroverts.remove(randomNumber);
                 }
             }
         }
         //that functino just paired all the introvers/extrovers with who was available now we have the rest of the other list and the exceptions to take care of
-        
 
+        ArrayList<LionsLunchMember> remaining = new ArrayList<>();
+        for (LionsLunchMember current : exceptions){
+            remaining.add(current);
+        }
+        for (LionsLunchMember current : introverts){
+            remaining.add(current);
+        }
+        for (LionsLunchMember current : extroverts){
+            remaining.add(current);
+        }
+        //added all the remainig people that need to be paired into one array
+
+        createPotentialPairs(remaining);
+        sortByPotentialSize(remaining);
+        //this recreates the potential pairs list for each of the remaining members and sorts by size now
+
+        if (remaining.size() % 2 != 0){
+            //this means that there si a remainder so that the remaining size is not evenly divisible by 2 so therefore there is an odd number of poeple
+            //we are going to match a specific person on the barod to them that we have set aside as the designated cover to go on lunch date with
+            //*****************
+            //send notification
+            //*****************
+            for (LionsLunchMember current : remaining ){
+                if (!current.getPotentialPairs().contains(oddBreaker.getEID())){
+                    // this means that they have not already met so i am going to pair these two individuals up
+                    pairings.add(current);
+                    pairings.add(oddBreaker);
+                    exceptions.remove(current);
+                }
+            }
+        }
+
+        //checking to see if there was a potential match and if there isnt i am just going to leave someone unpaired and send an email to Teenuh to ask chairs
+        //theoretically should not ever happen  but a case to check
+        if (remaining.size() % 2 != 0){
+            //**************
+            // send an email or someting figure this part out later lol not a big deal for now cause it shoudl never happen for the next billino years
+            //**************
+        }
+
+        //now list should be even so pair up the following completely random based on the condition if they ahve or have not already been paried
+        exceptions = new ArrayList<>();
+        while (!remaining.isEmpty()){
+            //int randomNum = rand.nextInt((max - min) + 1) + min;
+            int randomNum = rand.nextInt(remaining.size() - 1 - 1 + 1 + 1);
+            if (remaining.get(0).getPotentialPairs().size() == 0){
+                exceptions.add(remaining.get(0));
+                remaining.remove(0);
+            } else if (!remaining.get(0).getPotentialPairs().contains(remaining.get(randomNum)) || remaining.get(0).getPastPairs() == null){
+                //this means that they have never been paired with anyone so just automatically pair them
+                pairings.add(remaining.get(0));
+                pairings.add(remaining.get(randomNum));
+                //if a pair has been found we need to remove this potentail from all the members personal lists
+                for (LionsLunchMember current : remaining){
+                    ArrayList<LionsLunchMember> update = current.getPotentialPairs();
+                    update.remove(remaining.get(randomNum));
+                    current.setPotentialPairs(update);
+                    //not sure if this works but we will see soon enoguh we need to remove the EID of the member that just got paired
+                    //this should work beacue introvers.get returns a lionslunchmember object that we are removing from potential pairs
+                }
+                remaining.remove(0);
+                remaining.remove(randomNum);
+            }
+        }
+
+        //this checks to see if excetions has anything
+        if (!exceptions.isEmpty()){
+            //**********
+            //send notification
+            //**********
+            for (LionsLunchMember current : exceptions){
+                pairings.add(current);
+            }
+        }
+
+        //this means that everyone is paired and i need to return the array or do whatever i need to do with it print it save it to whatever send an email
+        //also have confirmation etc. final steps but the pairings array is complete 
+        return pairings;
 
     }
 
