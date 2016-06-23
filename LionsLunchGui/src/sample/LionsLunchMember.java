@@ -1,4 +1,5 @@
 package sample;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class LionsLunchMember implements java.io.Serializable{
     private String personality = null;
     private String additionalInfo = null;
     private String pastPairs = null;
+    private ArrayList<LionsLunchMember> potentialPairs = null;
 
     public LionsLunchMember(String initEID, String initName, String initPhoneNumber, String initEmailAddress, String initYearClassification,
                             Boolean initPairMajor, String initMajor, String initPermissions, Boolean initWeeklyPair, String initPersonality, String initAdditionalInfo, String initPastPairs){
@@ -84,5 +86,9 @@ public class LionsLunchMember implements java.io.Serializable{
     public String getPastPairs(){return this.pastPairs;}
 
     public void addLunchPair(String sMember){this.pastPairs = sMember;}
+
+    public void addPotentialPair(LionsLunchMember add){this.potentialPairs.add(add);}
+
+    public ArrayList<LionsLunchMember> getPotentialPairs(){return this.potentialPairs;}
 
 }

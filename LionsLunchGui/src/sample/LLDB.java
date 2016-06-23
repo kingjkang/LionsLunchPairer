@@ -85,6 +85,32 @@ public class LLDB {
         }
     }
 
+    public static void updatePastPairs(LionsLunchMember updatingMember){
+
+        try {
+            //creating a sql database connection
+            Connection conn = getConnection();
+
+            //creating the sql delete element statement
+            String query = "update members set member_past_pairs = ? where member_eid = ?";
+
+            //creating the preparedstatement
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, updatingMember.getPastPairs());
+            preparedStmt.setString(2, updatingMember.getEID());
+
+            //execute the prepared statememnt
+            preparedStmt.execute();
+
+            //close the connection
+            conn.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static ArrayList<LionsLunchMember> getMemberInfo(){
         ArrayList<LionsLunchMember> memz = new ArrayList<LionsLunchMember>();
         try {

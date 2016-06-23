@@ -16,9 +16,10 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-        
+
         ArrayList<LionsLunchMember> members = LLDB.getMemberInfo();
-        System.out.println(members.get(0).getEID());
+//        System.out.println(members.get(0).getEID());
+        //LionsLunchPairer.pairLions(members);
     }
 
 
