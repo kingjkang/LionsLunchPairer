@@ -14,11 +14,19 @@ public class LionsLunchPairer {
     public static void main(String [] args){
         System.out.println("welcome to lions lunch pairer lol");
         ArrayList<LionsLunchMember> members;
+        //LLDB.deleteMember("tst3");
+        //LLDB.deleteMember("tst2");
         members = LLDB.getMemberInfo();
-        //LLDB.addMember("tst0", "test one", "0000000000", "testing1@gmail.com", "Junior", false, "Business", "full access", false, "introverted", "none");
+        //LLDB.addMember("tst3", "test four", "0000000000", "testing1@gmail.com", "Junior", false, "Business", "full access", false, "extroverted", "none");
         //LLDB.addMember("tst1", "test two", "0000000000", "testing1@gmail.com", "Junior", false, "Business", "full access", false, "introverted", "none");
         //LLDB.addMember("tst2", "test three", "0000000000", "testing1@gmail.com", "Junior", false, "Business", "full access", false, "introverted", "none");
-        pairLions(members);
+
+        LionsLunchMember ob = new LionsLunchMember("oddbreaker", "testloldamnit", "0000000000", "testing1@gmail.com", "Junior", false, "Business", "full access", false, "introverted", "none", null);
+        //LionsLunchMember ob0 = new LionsLunchMember("tst0", "test three", "0000000000", "testing1@gmail.com", "Junior", false, "Business", "full access", false, "introverted", "none", "tst0");
+        //LionsLunchMember ob1 = new LionsLunchMember("tst2", "test three", "0000000000", "testing1@gmail.com", "Junior", false, "Business", "full access", false, "introverted", "none", "tst2");
+        //LLDB.updatePastPairs(ob0);
+        //LLDB.updatePastPairs(ob1);
+        pairLionsIE(members, ob);
         System.out.println("lions paired!");
     }
 
@@ -26,18 +34,19 @@ public class LionsLunchPairer {
         ArrayList<LionsLunchMember> introverts = new ArrayList<>();
         ArrayList<LionsLunchMember> extroverts = new ArrayList<>();
 
-        createPotentialPairs(buddies);
+        createPotentialPairsIE(buddies);
 
         //splitting the list into introverts and extroverts and by potentialPairs size smallest first
         for (LionsLunchMember current : buddies){
-            if (current.getPersonality().equals("Introverted")){
+            if (current.getPersonality().equals("introverted")){
                 introverts.add(current);
-                sortByPotentialSize(introverts);
             } else {
                 extroverts.add(current);
-                sortByPotentialSize(extroverts);
             }
         }
+
+        sortByPotentialSize(introverts);
+        sortByPotentialSize(extroverts);
 
         //getting the size of the smaller array so we dont get index OOB exception
         ArrayList<LionsLunchMember> pairings = new ArrayList<>();
@@ -51,7 +60,7 @@ public class LionsLunchPairer {
                 if (extroverts.get(0).getPotentialPairs().size() == 0){
                     exceptions.add(extroverts.get(0));
                     extroverts.remove(0);
-                } else if (extroverts.get(0).getPastPairs() == null || !extroverts.get(0).getPotentialPairs().contains(introverts.get(randomNumber))) {
+                } else if (extroverts.get(0).getPastPairs() == null || extroverts.get(0).getPotentialPairs().contains(introverts.get(randomNumber))) {
                     //this means that they have never been paired with anyone so just automatically pair them
                     pairings.add(extroverts.get(0));
                     pairings.add(introverts.get(randomNumber));
@@ -74,7 +83,7 @@ public class LionsLunchPairer {
                 if (introverts.get(0).getPotentialPairs().size() == 0){
                     exceptions.add(introverts.get(0));
                     introverts.remove(0);
-                } else if (introverts.get(0).getPastPairs() == null || !introverts.get(0).getPotentialPairs().contains(extroverts.get(randomNumber))){
+                } else if (introverts.get(0).getPastPairs() == null || introverts.get(0).getPotentialPairs().contains(extroverts.get(randomNumber))){
                     pairings.add(introverts.get(0));
                     pairings.add(extroverts.get(randomNumber));
                     for (LionsLunchMember current : introverts){
@@ -112,11 +121,12 @@ public class LionsLunchPairer {
             //send notification
             //*****************
             for (LionsLunchMember current : remaining ){
-                if (!current.getPotentialPairs().contains(oddBreaker.getEID())){
+                if (!current.getPastPairs().contains(oddBreaker.getEID())){
                     // this means that they have not already met so i am going to pair these two individuals up
                     pairings.add(current);
                     pairings.add(oddBreaker);
-                    exceptions.remove(current);
+                    remaining.remove(current);
+                    break;
                 }
             }
         }
@@ -137,7 +147,7 @@ public class LionsLunchPairer {
             if (remaining.get(0).getPotentialPairs().size() == 0){
                 exceptions.add(remaining.get(0));
                 remaining.remove(0);
-            } else if (!remaining.get(0).getPotentialPairs().contains(remaining.get(randomNum)) || remaining.get(0).getPastPairs() == null){
+            } else if (remaining.size() >= 2 && remaining.get(0).getPotentialPairs().contains(remaining.get(randomNum)) || remaining.get(0).getPastPairs() == null){
                 //this means that they have never been paired with anyone so just automatically pair them
                 pairings.add(remaining.get(0));
                 pairings.add(remaining.get(randomNum));
@@ -151,6 +161,9 @@ public class LionsLunchPairer {
                 }
                 remaining.remove(0);
                 remaining.remove(randomNum);
+            } else if (remaining.size() < 2){
+                exceptions.add(remaining.get(0));
+                remaining.remove(0);
             }
         }
 
@@ -165,16 +178,46 @@ public class LionsLunchPairer {
         }
 
         //this means that everyone is paired and i need to return the array or do whatever i need to do with it print it save it to whatever send an email
-        //also have confirmation etc. final steps but the pairings array is complete 
+        //also have confirmation etc. final steps but the pairings array is complete
+        printPairings(pairings);
+        int i = 0;
+        for (int c = 0; c < pairings.size()/2; c++){
+            int j = i + 1;
+            pairings.get(i).addLunchPair(pairings.get(i).getPastPairs() + ", " + pairings.get(j).getEID());
+            pairings.get(j).addLunchPair(pairings.get(j).getPastPairs() + ", " + pairings.get(i).getEID());
+            i = i + 2;
+        }
+
+        for (LionsLunchMember current : pairings){
+            LLDB.updatePastPairs(current);
+        }
         return pairings;
 
     }
 
+    public static void printPairings(ArrayList<LionsLunchMember> pairings){
+        System.err.println("printing pairings straight down");
+        for (LionsLunchMember current : pairings){
+            System.err.println(current.getEID());
+        }
+    }
 
     public static void createPotentialPairs(ArrayList<LionsLunchMember> potentials){
         for (LionsLunchMember current : potentials){
+            current.clearPotentialPairs();
             for (LionsLunchMember check : potentials){
-                if (!current.getPastPairs().contains(check.getEID()) && current.getEID() != check.getEID()){
+                if (!current.getPastPairs().contains(check.getEID()) && current.getEID().equals(check.getEID())){
+                    current.addPotentialPair(check);
+                }
+            }
+        }
+    }
+
+    public static void createPotentialPairsIE(ArrayList<LionsLunchMember> potentials){
+        for (LionsLunchMember current : potentials){
+            current.clearPotentialPairs();
+            for (LionsLunchMember check : potentials){
+                if (!current.getPastPairs().contains(check.getEID()) && !current.getEID().equals(check.getEID()) && !current.getPersonality().equals(check.getPersonality())){
                     current.addPotentialPair(check);
                 }
             }
@@ -185,10 +228,11 @@ public class LionsLunchPairer {
         LionsLunchMember temp = null;
         for (int i = 0; i < people.size(); i++){
             for (int index = 1; index < people.size(); index++){
-                if (people.get(index).getPotentialPairs().size() < people.get(index--).getPotentialPairs().size()){
+                int pointer = index - 1;
+                if (people.get(index).getPotentialPairs().size() < people.get(pointer).getPotentialPairs().size()){
                     temp = people.get(index);
-                    people.set(index, people.get(index--));
-                    people.set(index--, temp);
+                    people.set(index, people.get(pointer));
+                    people.set(pointer, temp);
                 }
             }
         }

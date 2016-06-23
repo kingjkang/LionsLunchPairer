@@ -20,7 +20,7 @@ public class LionsLunchMember implements java.io.Serializable{
     private Boolean weeklyPair = false;
     private String personality = null;
     private String additionalInfo = null;
-    private String pastPairs = null;
+    private String pastPairs = "";
     private ArrayList<LionsLunchMember> potentialPairs = null;
 
     public LionsLunchMember(String initEID, String initName, String initPhoneNumber, String initEmailAddress, String initYearClassification,
@@ -37,6 +37,7 @@ public class LionsLunchMember implements java.io.Serializable{
         this.personality = initPersonality;
         this.additionalInfo = initAdditionalInfo;
         this.pastPairs = initPastPairs;
+        this.potentialPairs = new ArrayList<>();
     }
 
     public void setName(String sName){this.name = sName;}
@@ -87,9 +88,11 @@ public class LionsLunchMember implements java.io.Serializable{
 
     public void addLunchPair(String sMember){this.pastPairs = sMember;}
 
-    public void addPotentialPair(LionsLunchMember add){this.potentialPairs.add(add);}
+    public void addPotentialPair(LionsLunchMember toAdd){this.potentialPairs.add(toAdd);}
 
     public ArrayList<LionsLunchMember> getPotentialPairs(){return this.potentialPairs;}
+
+    public void clearPotentialPairs(){this.potentialPairs = new ArrayList<>();}
 
     public void setPotentialPairs(ArrayList<LionsLunchMember> sPotentialPairs){this.potentialPairs = sPotentialPairs;}
 

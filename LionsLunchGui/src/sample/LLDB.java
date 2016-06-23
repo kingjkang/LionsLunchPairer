@@ -32,7 +32,7 @@ public class LLDB {
 
             //the sql insert statement
             String query =  " insert into members(member_eid, member_name, member_phone, member_email, member_year, member_pair_major, member_major, member_permission, member_weekly_pair" +
-                    ", member_personality, member_additional_info)" + " values(?,?,?,?,?,?,?,?,?,?,?)";
+                    ", member_personality, member_additional_info, member_past_pairs)" + " values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
             //create the sql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -47,6 +47,7 @@ public class LLDB {
             preparedStmt.setBoolean(9, initWeeklyPair);
             preparedStmt.setString(10, initPersonality);
             preparedStmt.setString(11, initAdditionalInfo);
+            preparedStmt.setString(12, "");
             //maybe add past pairs to add him or herself to the list idk
 
             //execute the preparedstatement
