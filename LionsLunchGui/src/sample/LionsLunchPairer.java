@@ -57,7 +57,9 @@ public class LionsLunchPairer {
                     pairings.add(Introverts.get(randomNumber));
                     //if a pair has been found we need to remove this potentail from all the members personal lists
                     for (LionsLunchMember current : Extroverts){
-                        current.getPotentialPairs().remove(Introverts.get(randomNumber));
+                        ArrayList<LionsLunchMember> update = current.getPotentialPairs();
+                        update.remove(Introverts.get(randomNumber));
+                        current.setPotentialPairs(update);
                         //not sure if this works but we will see soon enoguh we need to remove the EID of the member that just got paired
                         //this should work beacue introvers.get returns a lionslunchmember object that we are removing from potential pairs
                     }
@@ -66,8 +68,28 @@ public class LionsLunchPairer {
                 }
             }
         } else {
-
+            //this means that the introverts array is amaller so there are less of them to pair
+            while (!Introverts.isEmpty()){
+                int randomNumber = rand.nextInt(((Extroverts.size() - 1) - 0) + 1);
+                if (Introverts.get(0).getPotentialPairs().size() == 0){
+                    exceptions.add(Introverts.get(0));
+                    Introverts.remove(0);
+                } else if (Introverts.get(0).getPastPairs() == null || !Introverts.get(0).getPotentialPairs().contains(Extroverts.get(randomNumber))){
+                    pairings.add(Introverts.get(0));
+                    pairings.add(Extroverts.get(randomNumber));
+                    for (LionsLunchMember current : Introverts){
+                        ArrayList<LionsLunchMember> update = current.getPotentialPairs();
+                        update.remove(Extroverts.get(randomNumber));
+                        current.setPotentialPairs(update);
+                    }
+                    Introverts.remove(0);
+                    Extroverts.remove(randomNumber);
+                }
+            }
         }
+        //that functino just paired all the introvers/extrovers with who was available now we have the rest of the other list and the exceptions to take care of
+        
+
 
     }
 

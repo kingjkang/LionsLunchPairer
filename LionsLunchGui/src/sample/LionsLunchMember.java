@@ -91,4 +91,6 @@ public class LionsLunchMember implements java.io.Serializable{
 
     public ArrayList<LionsLunchMember> getPotentialPairs(){return this.potentialPairs;}
 
+    public void setPotentialPairs(ArrayList<LionsLunchMember> sPotentialPairs){this.potentialPairs = sPotentialPairs;}
+
 }
