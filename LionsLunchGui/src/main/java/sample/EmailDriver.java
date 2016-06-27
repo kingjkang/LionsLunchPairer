@@ -2,7 +2,13 @@ package sample;
 
 import javax.mail.*;
 import javax.mail.internet.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
@@ -10,33 +16,29 @@ import java.util.Properties;
  * Created by justinkang on 6/27/16.
  */
 public class EmailDriver {
-    private class SMTPAuthenticator extends Authenticator
-    {
-        private PasswordAuthentication authentication;
+    public static void sendList(ArrayList<LionsLunchMember> list){
 
-        public SMTPAuthenticator(String login, String password)
-        {
-            authentication = new PasswordAuthentication(login, password);
+        try {
+            ListCreator.makeListFile(list);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
 
-        @Override
-        protected PasswordAuthentication getPasswordAuthentication()
-        {
-            return authentication;
-        }
-    }
-
-
-    public static void sendList(){
         String host = "smtp.gmail.com";
         String port = "587";
         final String userName = "LionsLunchPairing@gmail.com";
         final String password = "sunflowerseed";
         String toAddress = "justin.kang@utexas.edu";
         String subject = "Lions lunches Weekly Pairings";
-        String message = "here are the pairs for the week!";
-        String[] attachFiles = null;
-        //attachFiles[0] = ""; //address of the file i create
+        String message = "here are the pairs for the week!<br/><br/>" + createMessageBody(list);
+
+        String[] attachFiles = new String[1];
+
+        String pathPlus = System.getProperty("user.dir");
+        String path = pathPlus + "/pairedList.txt";
+        attachFiles[0] = path;
 
         Properties props = new Properties();
         props.put("mail.smtp.host", host);
@@ -119,5 +121,21 @@ public class EmailDriver {
             e.printStackTrace();
         }
     }
+
+    public static String createMessageBody(ArrayList<LionsLunchMember> list){
+        String body = "";
+
+        int first = 0;
+        int second = 1;
+        for (int i = 0; i < list.size()/2; i++){
+            body = body + list.get(first).getName() + " (" + list.get(first).getEID() + ") -- " + list.get(second).getName() + " (" + list.get(second).getEID() + ")<br/>";
+            first = first + 2;
+            second = second + 2;
+        }
+        body = body + "<br/>";
+
+        return body;
+    }
+
 
 }

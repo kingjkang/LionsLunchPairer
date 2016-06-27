@@ -1,0 +1,8 @@
+Here are the lions lunch pairs for the week
+
+
+test two (tst1) -- bm0000 (Board Member)
+test three (tst2) -- justin kang (jk36542)
+test one (tst0) -- test four (tst3)
+
+

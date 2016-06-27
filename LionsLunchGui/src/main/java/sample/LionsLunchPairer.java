@@ -3,6 +3,8 @@ import com.google.gdata.data.appsforyourdomain.Email;
 import com.sun.org.apache.xml.internal.resolver.readers.ExtendedXMLCatalogReader;
 
 import javax.mail.internet.AddressException;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,9 +30,9 @@ public class LionsLunchPairer {
         //LionsLunchMember ob1 = new LionsLunchMember("tst2", "test three", "0000000000", "testing1@gmail.com", "Junior", false, "Business", "full access", false, "introverted", "none", "tst2");
         //LLDB.updatePastPairs(ob0);
         //LLDB.updatePastPairs(ob1);
-        pairLionsIE(members, ob);
+        ArrayList<LionsLunchMember> pairedList = pairLionsIE(members, ob);
         System.out.println("lions paired!");
-        EmailDriver.sendList();
+        EmailDriver.sendList(pairedList);
         //String curDir = System.getProperty("user.dir");
         //System.out.println(curDir);
     }
@@ -126,7 +128,7 @@ public class LionsLunchPairer {
             //send notification
             //*****************
             for (LionsLunchMember current : remaining ){
-                if (!current.getPastPairs().contains(oddBreaker.getEID())){
+                if (!current.getPastPairs().contains(oddBreaker.getEID())) {
                     // this means that they have not already met so i am going to pair these two individuals up
                     pairings.add(current);
                     pairings.add(oddBreaker);
@@ -134,6 +136,12 @@ public class LionsLunchPairer {
                     break;
                 }
             }
+            //this means that the oddbreaker that we have set up default has already eaten with all of the people paired
+            //so i am making an exception member so that we can find someone to eat with the member
+            LionsLunchMember bm = new LionsLunchMember("Board Member", "bm0000", "0000000000", "justin.kang@utexas.edu", "Senior", false, "Business", "full access", false, "introverted", "none", null);
+            pairings.add(remaining.get(0));
+            pairings.add(bm);
+            remaining.remove(remaining.get(0));
         }
 
         //checking to see if there was a potential match and if there isnt i am just going to leave someone unpaired and send an email to Teenuh to ask chairs
