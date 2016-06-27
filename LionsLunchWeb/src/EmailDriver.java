@@ -1,5 +1,3 @@
-package sample;
-
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.io.File;

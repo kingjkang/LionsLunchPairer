@@ -1,4 +1,3 @@
-package sample;
 import com.google.gdata.data.appsforyourdomain.Email;
 import com.sun.org.apache.xml.internal.resolver.readers.ExtendedXMLCatalogReader;
 
@@ -33,7 +32,7 @@ public class LionsLunchPairer {
         ArrayList<LionsLunchMember> pairedList = pairLionsIE(members, ob);
         System.out.println("lions paired!");
         //EmailDriver.sendList(pairedList);
-        EmailDriver.sendMember(pairedList);
+        //EmailDriver.sendMember(pairedList);
         //String curDir = System.getProperty("user.dir");
         //System.out.println(curDir);
     }
