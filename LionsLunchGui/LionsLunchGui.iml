@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -29,6 +33,295 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/poi-ooxml-3.15-beta1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/commons-logging-1.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-api-client-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-api-client-android-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-api-client-appengine-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-api-client-gson-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-api-client-jackson2-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-api-client-java6-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-api-client-protobuf-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-api-client-servlet-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-api-client-xml-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-http-client-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-http-client-android-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-http-client-appengine-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-http-client-gson-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-http-client-jackson-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-http-client-jackson2-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-http-client-jdo-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-http-client-protobuf-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-http-client-xml-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-oauth-client-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-oauth-client-appengine-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-oauth-client-java6-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-oauth-client-jetty-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/google-oauth-client-servlet-1.21.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/gson-2.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/guava-jdk5-17.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/httpclient-4.0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/httpcore-4.0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/jackson-core-2.1.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/jackson-core-asl-1.9.11.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/jdo2-api-2.3-eb.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/jetty-6.1.26.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/jetty-util-6.1.26.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/jsr305-1.3.9.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/protobuf-java-2.4.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/transaction-api-1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/xpp3-1.1.4c.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/google-api-java-client/libs/jsr305-1.3.9.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/google-api-client-1.22.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-analytics-2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-appsforyourdomain-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-base-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-blogger-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-books-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-calendar-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-client-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-codesearch-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-contacts-3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-core-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-docs-3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-finance-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-gtt-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-health-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-maps-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-media-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-photos-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-projecthosting-2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-sidewiki-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-sites-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-spreadsheet-3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-webmastertools-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/gdata-youtube-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/javax.mail.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/activation.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
