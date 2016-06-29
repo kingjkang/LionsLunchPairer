@@ -10,28 +10,22 @@ import java.io.PrintWriter;
  * Created by justinkang on 6/27/16.
  */
 @WebServlet(name = "WeeklyForm")
+//@WebServlet("/WeeklyForm")
 public class WeeklyForm extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String name = request.getParameter("name");
+        String eid = request.getParameter("eid");
+        if (name.equals("justin")){
+            request.getSession().setAttribute("name", name);
+            response.sendRedirect("Confirmation.jsp");
+        } else {
+            request.setAttribute("error", "Unknown person, please try again");
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
-
-        try (PrintWriter writer = response.getWriter()) {
-
-            writer.println("<!DOCTYPE html><html>");
-            writer.println("<head>");
-            writer.println("<meta charset=\"UTF-8\" />");
-            writer.println("<title>MyServlet.java:doGet(): Servlet code!</title>");
-            writer.println("</head>");
-            writer.println("<body>");
-
-            writer.println("<h1>This is a simple java servlet.</h1>");
-
-            writer.println("</body>");
-            writer.println("</html>");
-        }
+        request.getRequestDispatcher("/WEB-INF/LunchForm.jsp").forward(request, response);
+        //not sure why we need the webinf part ill try it later without it and with it to see if it actually changes anything
     }
 }

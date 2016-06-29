@@ -8,10 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Lions Lunches Home</title>
   </head>
   <body>
-  <h1>Simple Java Web App Demo</h1>
-  <p>To invoke the java servlet click <a href="WeeklyForm">here</a></p>
+    <h1>Welcome to Lions Lunches</h1>
+    <p>To sign up for a lions lunch this week please click <a href="LunchForm.jsp">here</a></p>
   </body>
 </html>
