@@ -12,7 +12,9 @@
 </head>
 <body>
     <h1>Thank you for signing up for Lions Lunches!</h1>
-    <%=(String)request.getAttribute("name")%>
+    <p>${name}</p>
+    <p>${eid}</p>
+    <p>${phone}</p>
     <p>To return to the singup page please click <a href="LunchForm.jsp">here</a></p>
 </body>
 </html>

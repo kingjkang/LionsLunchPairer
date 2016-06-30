@@ -33,25 +33,28 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="field" for = "name">First and Last Name: </label>
-                            <input type = "text" name = "name" id = "name" placeholder = "Justin Kang" required><br>
+                            <input type = "text" pattern="[a-zA-Z\s]+" name = "name" id = "name" placeholder = "Justin Kang" required><br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="field" for = "eid">UT EID: </label>
-                            <input type = "text" name = "eid" id = "eid" placeholder = "jk36542" required><br>
+                            <input type = "text" pattern="[a-zA-Z0-9]+" name = "eid" id = "eid" placeholder = "jk36542" maxlength="10" required><br>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="field" for = "phoneNumber">Phone Number: </label>
-                            <input type = "text" name = "phoneNumber" id = "phoneNumber" placeholder = "4692366449" required><br>
+                            <label class="field" for = "phoneNumber">Phone Number:</label>
+                            <input type = "tel" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" name = "phoneNumber" id = "phoneNumber" placeholder = "4692366449" title="Please enter your phone number in the form 4692366449 with no spaces or symbols." required><br>
+                            <%--<script>--%>
+                                <%--document.getElementById("phoneNumber").setCustomValidity("Please enter your phone number in the form 4692366449 with no spaces or symbols.");--%>
+                            <%--</script>--%>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="field" for="email">Email Address: </label>
-                            <input type = "text" email = "email" id="email" placeholder="justin.kang@utexas.edu" required>
+                            <input type = "email" email = "email" id="email" placeholder="justin.kang@utexas.edu" required>
                         </div>
                     </div>
                     <div class="row">
@@ -125,7 +128,7 @@
                         </div>
                     </div>
                     <div class="wrapper">
-                        <button class="button" type="submit">Submit</button>
+                        <input type="submit" value="Submit">
                     </div>
                 </form>
             </td>
