@@ -24,17 +24,20 @@ public class WeeklyForm extends HttpServlet {
         String recurrence = request.getParameter("recurrence");
 
         phoneNumber = phoneNumber.replaceAll("\\D", "");
-        emailAddress = emailAddress.replaceAll("\\D", "");
+        emailAddress = emailAddress.replaceAll("\\s+", "");
 
         if (name.matches("[a-zA-Z]+(\\s+[a-zA-Z]+)*") &&
                 eid.matches("[a-zA-Z0-9]{3,10}") &&
                 phoneNumber.length() == 10 &&
-                checkEmail(emailAddress) == true
-
+                emailAddress.contains("@") &&
+                yearIsValid(year)
                 ){
+
             request.getSession().setAttribute("name", name);
             request.getSession().setAttribute("eid", eid);
             request.getSession().setAttribute("phone", phoneNumber);
+            request.getSession().setAttribute("email", emailAddress);
+            request.getSession().setAttribute("year", year);
             request.getRequestDispatcher("/Confirmation.jsp").forward(request, response);
         }
 
@@ -49,8 +52,8 @@ public class WeeklyForm extends HttpServlet {
         //not sure why we need the webinf part ill try it later without it and with it to see if it actually changes anything
     }
 
-    private boolean checkEmail(String email){
-        if (email.contains("@")){
+    private boolean yearIsValid(String year){
+        if (year.equals("superSenior") || year.equals("senior") || year.equals("junior") || year.equals("sophomore") || year.equals("freshman") || year.equals("other")){
             return true;
         }
         return false;

@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="field" for="email">Email Address: </label>
-                            <input type = "email" email = "email" id="email" placeholder="justin.kang@utexas.edu" required>
+                            <input type = "email" name = "email" id="email" placeholder="justin.kang@utexas.edu" required>
                         </div>
                     </div>
                     <div class="row">

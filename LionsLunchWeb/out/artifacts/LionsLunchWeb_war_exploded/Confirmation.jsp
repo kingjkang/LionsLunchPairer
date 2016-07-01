@@ -15,6 +15,8 @@
     <p>${name}</p>
     <p>${eid}</p>
     <p>${phone}</p>
+    <p>${email}</p>
+    <p>${year}</p>
     <p>To return to the singup page please click <a href="LunchForm.jsp">here</a></p>
 </body>
 </html>
