@@ -17,6 +17,10 @@
     <p>${phone}</p>
     <p>${email}</p>
     <p>${year}</p>
+    <p>${major}</p>
+    <p>${gender}</p>
+    <p>${personality}</p>
+    <p>${recurrence}</p>
     <p>To return to the singup page please click <a href="LunchForm.jsp">here</a></p>
 </body>
 </html>

@@ -30,7 +30,11 @@ public class WeeklyForm extends HttpServlet {
                 eid.matches("[a-zA-Z0-9]{3,10}") &&
                 phoneNumber.length() == 10 &&
                 emailAddress.contains("@") &&
-                yearIsValid(year)
+                yearIsValid(year) &&
+                majorisValid(major) &&
+                genderIsValid(gender) &&
+                personalityIsValid(personality) &&
+                recurrenceIsValid(recurrence)
                 ){
 
             request.getSession().setAttribute("name", name);
@@ -38,6 +42,10 @@ public class WeeklyForm extends HttpServlet {
             request.getSession().setAttribute("phone", phoneNumber);
             request.getSession().setAttribute("email", emailAddress);
             request.getSession().setAttribute("year", year);
+            request.getSession().setAttribute("major", major);
+            request.getSession().setAttribute("gender", gender);
+            request.getSession().setAttribute("personality", personality);
+            request.getSession().setAttribute("recurrence", recurrence);
             request.getRequestDispatcher("/Confirmation.jsp").forward(request, response);
         }
 
@@ -54,6 +62,36 @@ public class WeeklyForm extends HttpServlet {
 
     private boolean yearIsValid(String year){
         if (year.equals("superSenior") || year.equals("senior") || year.equals("junior") || year.equals("sophomore") || year.equals("freshman") || year.equals("other")){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean majorisValid(String major){
+        if (major.equals("engineering") || major.equals("business") || major.equals("education") || major.equals("education") || major.equals("fineArts") || major.equals("liberalArts")
+                || major.equals("naturalSciences") || major.equals("pharmacy") || major.equals("geosciences") || major.equals("publicAffairs") || major.equals("architecture") || major.equals("information")
+                || major.equals("law") || major.equals("nursing") || major.equals("socialWork") || major.equals("communications") || major.equals("undeclared") || major.equals("other")){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean genderIsValid(String gender){
+        if (gender.equals("male") || gender.equals("female") || gender.equals("other")){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean personalityIsValid(String personality){
+        if (personality.equals("extroverted") || personality.equals("introverted")){
+            return true;
+        }
+        return false;
+    }
+
+    private boolean recurrenceIsValid(String recurrence){
+        if (recurrence.equals("recurring") || recurrence.equals("nextWeek")){
             return true;
         }
         return false;
