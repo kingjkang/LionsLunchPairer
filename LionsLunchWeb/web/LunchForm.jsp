@@ -22,6 +22,19 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="LunchForm.jsp">Lion's Lunches</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="index.jsp">Home</a></li>
+            <li class="active"><a href="LunchForm.jsp">Sign-Up Form</a></li>
+        </ul>
+    </div>
+</nav>
+
 <div id="content">
 <%--<div id="header">--%>
     <h1>Welcome to Lions Lunches Form</h1>
