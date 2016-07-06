@@ -46,8 +46,8 @@
       <file leaf-file-name="LLDBController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LLDBController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+            <state relative-caret-position="210">
+              <caret line="17" column="60" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="60" />
               <folding>
                 <marker date="1467830555000" expanded="true" signature="1373:1655" ph="insert into members... " />
                 <marker date="1467830555000" expanded="true" signature="2990:3030" ph="delete from " />
@@ -217,7 +217,6 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -288,12 +287,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/jar's" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -849,11 +849,13 @@
       <workItem from="1467746425038" duration="558000" />
       <workItem from="1467747135829" duration="1493000" />
       <workItem from="1467830532382" duration="24000" />
+      <workItem from="1467837862737" duration="1000" />
+      <workItem from="1467837872502" duration="26000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64751000" />
+    <option name="totallyTimeSpent" value="64778000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1916" height="1177" extended-state="6" />
@@ -1224,7 +1226,7 @@
         <state relative-caret-position="270">
           <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1302,8 +1304,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LLDBController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        <state relative-caret-position="210">
+          <caret line="17" column="60" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="60" />
           <folding>
             <marker date="1467830555000" expanded="true" signature="1373:1655" ph="insert into members... " />
             <marker date="1467830555000" expanded="true" signature="2990:3030" ph="delete from " />
