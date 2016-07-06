@@ -1,0 +1,64 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="LionsLunchWeb:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/LionsLunchWeb_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="LionsLunchWeb/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="LionsLunchWeb" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/activation.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/javax.mail.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-gtt-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-base-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-core-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-docs-3.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-maps-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/poi-3.15-beta1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-books-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-media-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-sites-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-client-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-health-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-photos-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-blogger-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-finance-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-youtube-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-calendar-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-contacts-3.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-gtt-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-sidewiki-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-analytics-2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-docs-meta-3.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-maps-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-books-meta-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-codesearch-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-sites-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/poi-ooxml-3.15-beta1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-client-meta-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-health-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-photos-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-spreadsheet-3.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-blogger-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-finance-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-youtube-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-calendar-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-contacts-meta-3.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-sidewiki-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-analytics-meta-2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-projecthosting-2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-webmastertools-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/google-api-client-1.22.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-codesearch-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-spreadsheet-meta-3.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-appsforyourdomain-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-projecthosting-meta-2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-webmastertools-meta-2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/mysql-connector-java-5.1.39-bin.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/jar's/gdata-appsforyourdomain-meta-1.0.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
